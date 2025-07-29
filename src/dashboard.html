@@ -1,208 +1,445 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Professional Dashboard</title>
-  <script src="https://cdn.tailwindcss.com/3.4.0"></script>
-  <script>
-    tailwind.config = {
-      darkMode: 'class'
-    }
-  </script>
-  <style>
-    .transition-width {
-      transition: width 0.3s ease;
-    }
-  </style>
-</head>
-<body class="h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
-  <div class="flex h-screen">
 
-    <!-- Overlay for mobile -->
-    <div id="sidebar-overlay" class="fixed inset-0 bg-black bg-opacity-50 hidden lg:hidden z-20"></div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Professional Dashboard</title>
+    <script src="https://cdn.tailwindcss.com/3.4.0"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class'
+      }
+    </script>
+    <style>
+      .transition-width {
+        transition: width 0.3s ease;
+      }
+    </style>
+  </head>
 
-    <!-- Sidebar -->
-    <aside id="sidebar"
-      class="fixed lg:static inset-y-0 left-0 w-64 bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out z-30 flex flex-col shadow-lg lg:shadow-none transition-width">
-      
-      <!-- Logo + Collapse Button -->
-      <div class="h-16 flex items-center justify-between px-4 border-b border-gray-200 dark:border-gray-700">
-        <span id="logo-text" class="text-xl font-bold text-indigo-600 transition-opacity">Logo</span>
-        <button id="collapse-btn" class="hidden lg:inline text-gray-500 dark:text-gray-300 hover:text-indigo-600">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4" />
-          </svg>
-        </button>
-      </div>
+  <body class="h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+    <div class="flex h-screen">
 
-      <!-- Nav Links -->
-      <nav class="flex-1 px-2 py-6 space-y-2 overflow-y-auto">
-        <a href="#" class="flex items-center px-3 py-2 rounded-lg text-indigo-600 bg-indigo-50 dark:bg-indigo-900/40 font-medium hover:bg-indigo-100 dark:hover:bg-indigo-700 transition">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12h18M9 6h6m-6 12h6"/>
-          </svg>
-          <span class="ml-3 sidebar-label">Dashboard</span>
-        </a>
-        <a href="#" class="flex items-center px-3 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a8 8 0 10-16 0v2h5"/>
-          </svg>
-          <span class="ml-3 sidebar-label">Team</span>
-        </a>
-        <a href="#" class="flex items-center px-3 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-6h13M9 12V6H4v12h16v-6"/>
-          </svg>
-          <span class="ml-3 sidebar-label">Projects</span>
-        </a>
-        <a href="#" class="flex items-center px-3 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h8M8 11h8m-8 4h6M5 7h.01M5 11h.01M5 15h.01"/>
-          </svg>
-          <span class="ml-3 sidebar-label">Calendar</span>
-        </a>
-        <a href="#" class="flex items-center px-3 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"/>
-          </svg>
-          <span class="ml-3 sidebar-label">Documents</span>
-        </a>
-        <a href="#" class="flex items-center px-3 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 19V6h9M4 6h3m-3 6h3m-3 6h3"/>
-          </svg>
-          <span class="ml-3 sidebar-label">Reports</span>
-        </a>
-      </nav>
+      <!-- Overlay for mobile -->
+      <div id="sidebar-overlay" class="fixed inset-0 bg-black bg-opacity-50 hidden lg:hidden z-20"></div>
 
-      <!-- Settings -->
-      <div class="p-4 border-t border-gray-200 dark:border-gray-700">
-        <a href="#" class="flex items-center text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
-          </svg>
-          <span class="ml-3 sidebar-label">Settings</span>
-        </a>
-      </div>
-    </aside>
+      <!-- Sidebar -->
+      <aside id="sidebar"
+        class="fixed lg:static inset-y-0 left-0 w-64 bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out z-30 flex flex-col shadow-lg lg:shadow-none transition-width">
 
-    <!-- Main -->
-    <main class="flex-1 flex flex-col">
-      <header class="h-16 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 flex items-center justify-between px-4 lg:px-6 shadow-sm">
-        <!-- Hamburger for mobile -->
-        <button id="menu-btn" class="lg:hidden text-gray-600 dark:text-gray-300 focus:outline-none">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-          </svg>
-        </button>
-
-        <!-- Search -->
-        <div class="flex-1 mx-4">
-          <input type="text" placeholder="Search"
-            class="w-full lg:w-64 px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg text-sm bg-gray-50 dark:bg-gray-700 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition">
+        <!-- Logo + Collapse Button -->
+        <div class="h-16 flex items-center justify-between px-4 border-b border-gray-200 dark:border-gray-700">
+          <span id="logo-text" class="text-xl font-bold text-indigo-600 transition-opacity">Logo</span>
+          <button id="collapse-btn" class="hidden lg:inline text-gray-500 dark:text-gray-300 hover:text-indigo-600">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4" />
+            </svg>
+          </button>
         </div>
 
-        <!-- Right -->
-        <div class="flex items-center space-x-4 relative">
-          <!-- Dark mode toggle -->
-          <button id="dark-mode-toggle" class="text-gray-500 dark:text-gray-300 hover:text-indigo-600 transition">
-            <svg id="sun-icon" class="h-6 w-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m8.485-8.485h-1M4.515 12.515h-1m15.556-7.071l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707"/>
+        <!-- Nav Links -->
+        <nav class="flex-1 px-2 py-6 space-y-2 overflow-y-auto">
+          <a href="#"
+            class="flex items-center px-3 py-2 rounded-lg text-indigo-600 bg-indigo-50 dark:bg-indigo-900/40 font-medium hover:bg-indigo-100 dark:hover:bg-indigo-700 transition">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 shrink-0" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12h18M9 6h6m-6 12h6" />
             </svg>
-            <svg id="moon-icon" class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
+            <span class="ml-3 sidebar-label">Dashboard</span>
+          </a>
+          <a href="#"
+            class="flex items-center px-3 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 shrink-0" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a8 8 0 10-16 0v2h5" />
+            </svg>
+            <span class="ml-3 sidebar-label">Team</span>
+          </a>
+          <a href="#"
+            class="flex items-center px-3 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 shrink-0" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-6h13M9 12V6H4v12h16v-6" />
+            </svg>
+            <span class="ml-3 sidebar-label">Projects</span>
+          </a>
+          <a href="#"
+            class="flex items-center px-3 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 shrink-0" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M8 7h8M8 11h8m-8 4h6M5 7h.01M5 11h.01M5 15h.01" />
+            </svg>
+            <span class="ml-3 sidebar-label">Calendar</span>
+          </a>
+          <a href="#"
+            class="flex items-center px-3 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 shrink-0" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" />
+            </svg>
+            <span class="ml-3 sidebar-label">Documents</span>
+          </a>
+          <a href="#"
+            class="flex items-center px-3 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 shrink-0" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M11 19V6h9M4 6h3m-3 6h3m-3 6h3" />
+            </svg>
+            <span class="ml-3 sidebar-label">Reports</span>
+          </a>
+        </nav>
+
+        <!-- Settings -->
+        <div class="p-4 border-t border-gray-200 dark:border-gray-700">
+          <a href="#"
+            class="flex items-center text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 shrink-0" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+            </svg>
+            <span class="ml-3 sidebar-label">Settings</span>
+          </a>
+        </div>
+      </aside>
+
+      <!-- Main -->
+      <main class="flex-1 flex flex-col">
+        <header class="h-16 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 flex items-center justify-between px-4 lg:px-6 shadow-sm">
+          <!-- Hamburger for mobile -->
+          <button id="menu-btn" class="lg:hidden text-gray-600 dark:text-gray-300 focus:outline-none">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
             </svg>
           </button>
 
-          <!-- Notifications -->
-          <button class="text-gray-500 hover:text-indigo-600 transition">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405M19 13v-1a7 7 0 10-14 0v1a7 7 0 0014 0z"/>
-            </svg>
-          </button>
+          <!-- Search -->
+          <div class="flex-1 mx-4">
+            <input type="text" placeholder="Search"
+              class="w-full lg:w-64 px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg text-sm bg-gray-50 dark:bg-gray-700 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition">
+          </div>
 
-          <!-- Profile Dropdown -->
-          <div class="relative">
-            <button id="profile-btn" class="flex items-center focus:outline-none">
-              <img src="https://i.pravatar.cc/40" alt="User" class="h-8 w-8 rounded-full border border-gray-300 dark:border-gray-600">
-              <span class="ml-2 text-sm font-medium text-gray-700 dark:text-gray-200 hidden sm:inline sidebar-label">Tom Cook</span>
-              <svg class="ml-1 w-4 h-4 text-gray-500 dark:text-gray-400 sidebar-label" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+          <!-- Right -->
+          <div class="flex items-center space-x-4 relative">
+            <!-- Dark mode toggle -->
+            <button id="dark-mode-toggle" class="text-gray-500 dark:text-gray-300 hover:text-indigo-600 transition">
+              <svg id="sun-icon" class="h-6 w-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M12 3v1m0 16v1m8.485-8.485h-1M4.515 12.515h-1m15.556-7.071l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707" />
+              </svg>
+              <svg id="moon-icon" class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
               </svg>
             </button>
-            <div id="profile-dropdown"
-              class="hidden absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-md shadow-lg border border-gray-200 dark:border-gray-700 py-1 transition">
-              <a href="#" class="block px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 transition">Profile</a>
-              <a href="#" class="block px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 transition">Settings</a>
-              <a href="#" class="block px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 transition">Logout</a>
+
+            <!-- Notifications -->
+            <button class="text-gray-500 hover:text-indigo-600 transition">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M15 17h5l-1.405-1.405M19 13v-1a7 7 0 10-14 0v1a7 7 0 0014 0z" />
+              </svg>
+            </button>
+
+            <!-- Profile Dropdown -->
+            <div class="relative">
+              <button id="profile-btn" class="flex items-center focus:outline-none">
+                <img src="https://i.pravatar.cc/40" alt="User"
+                  class="h-8 w-8 rounded-full border border-gray-300 dark:border-gray-600">
+                <span
+                  class="ml-2 text-sm font-medium text-gray-700 dark:text-gray-200 hidden sm:inline sidebar-label">Tom
+                  Cook</span>
+                <svg class="ml-1 w-4 h-4 text-gray-500 dark:text-gray-400 sidebar-label" fill="none"
+                  stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              <div id="profile-dropdown"
+                class="hidden absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-md shadow-lg border border-gray-200 dark:border-gray-700 py-1 transition">
+                <a href="#"
+                  class="block px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 transition">Profile</a>
+                <a href="#"
+                  class="block px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 transition">Settings</a>
+                <a href="#"
+                  class="block px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 transition">Logout</a>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <div class="flex-1 p-6">
+          <div
+            class="w-full h-full border-2 border-dashed border-gray-300 dark:border-gray-700 rounded-lg bg-gray-50 dark:bg-gray-800 flex items-center justify-center text-gray-400 dark:text-gray-500">
+            <!-- Main content area -->
+            <div class="w-full max-w-5xl bg-white shadow rounded-lg p-6">
+              <!-- Header -->
+              <div class="flex justify-between items-center mb-6">
+                <div>
+                  <h1 class="text-lg font-semibold text-gray-800">Users</h1>
+                  <p class="text-sm text-gray-500">
+                    A list of all the users in your account including their name, title, email and role.
+                  </p>
+                </div>
+                <div class="flex space-x-3">
+                  <button id="bulkDeleteBtn"
+                    class="hidden bg-red-600 hover:bg-red-700 text-white text-sm font-medium px-4 py-2 rounded-md shadow">
+                    Delete Selected
+                  </button>
+                  <button
+                    class="bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-medium px-4 py-2 rounded-md shadow">
+                    Add user
+                  </button>
+                </div>
+              </div>
+              <!-- Table -->
+              <div class="overflow-x-auto">
+                <table class="min-w-full divide-y divide-gray-200 text-sm text-left">
+                  <thead class="bg-gray-50">
+                    <tr>
+                      <th class="px-4 py-3">
+                        <input id="selectAll" type="checkbox"
+                          class="h-4 w-4 text-indigo-600 border-gray-300 rounded cursor-pointer">
+                      </th>
+                      <th class="px-4 py-3 font-semibold text-gray-700">Name</th>
+                      <th class="px-4 py-3 font-semibold text-gray-700">Title</th>
+                      <th class="px-4 py-3 font-semibold text-gray-700">Email</th>
+                      <th class="px-4 py-3 font-semibold text-gray-700">Role</th>
+                      <th class="px-4 py-3"></th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-gray-200" id="userTableBody">
+                    <tr>
+                      <td class="px-4 py-3">
+                        <input type="checkbox"
+                          class="rowCheckbox h-4 w-4 text-indigo-600 border-gray-300 rounded cursor-pointer">
+                      </td>
+                      <td class="px-4 py-3 text-gray-800">Lindsay Walton</td>
+                      <td class="px-4 py-3 text-gray-500">Front-end Developer</td>
+                      <td class="px-4 py-3 text-gray-500">lindsay.walton@example.com</td>
+                      <td class="px-4 py-3 text-gray-500">Member</td>
+                      <td class="px-4 py-3 text-indigo-600 hover:underline cursor-pointer">Edit</td>
+                    </tr>
+                    <tr>
+                      <td class="px-4 py-3">
+                        <input type="checkbox"
+                          class="rowCheckbox h-4 w-4 text-indigo-600 border-gray-300 rounded cursor-pointer">
+                      </td>
+                      <td class="px-4 py-3 text-gray-800">Courtney Henry</td>
+                      <td class="px-4 py-3 text-gray-500">Designer</td>
+                      <td class="px-4 py-3 text-gray-500">courtney.henry@example.com</td>
+                      <td class="px-4 py-3 text-gray-500">Admin</td>
+                      <td class="px-4 py-3 text-indigo-600 hover:underline cursor-pointer">Edit</td>
+                    </tr>
+                    <tr>
+                      <td class="px-4 py-3">
+                        <input type="checkbox"
+                          class="rowCheckbox h-4 w-4 text-indigo-600 border-gray-300 rounded cursor-pointer">
+                      </td>
+                      <td class="px-4 py-3 text-gray-800">Tom Cook</td>
+                      <td class="px-4 py-3 text-gray-500">Director of Product</td>
+                      <td class="px-4 py-3 text-gray-500">tom.cook@example.com</td>
+                      <td class="px-4 py-3 text-gray-500">Member</td>
+                      <td class="px-4 py-3 text-indigo-600 hover:underline cursor-pointer">Edit</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
         </div>
-      </header>
+      </main>
 
-      <div class="flex-1 p-6">
-        <div class="w-full h-full border-2 border-dashed border-gray-300 dark:border-gray-700 rounded-lg bg-gray-50 dark:bg-gray-800 flex items-center justify-center text-gray-400 dark:text-gray-500">
-          Main content area
+      <!-- All hidden components -->
+
+      <!-- Toast Notification -->
+      <div id="toast"
+        class="fixed bottom-5 right-5 bg-green-600 text-white px-4 py-3 rounded-md shadow-lg opacity-0 translate-y-4 transition-all duration-300">
+        Users deleted successfully ✅
+      </div>
+
+      <!-- Confirmation Modal -->
+      <div id="confirmModal"
+        class="fixed inset-0 bg-black bg-opacity-40 hidden justify-center items-center z-50 transition-opacity duration-300">
+        <div
+          class="bg-white rounded-lg shadow-lg max-w-sm w-full p-6 transform scale-95 opacity-0 transition-all duration-300"
+          id="modalContent">
+          <h2 class="text-lg font-semibold text-gray-800 mb-4">Confirm Deletion</h2>
+          <p class="text-sm text-gray-600 mb-6">
+            Are you sure you want to delete the selected users? This action cannot be undone.
+          </p>
+          <div class="flex justify-end space-x-3">
+            <button id="cancelDelete" class="bg-gray-200 hover:bg-gray-300 text-gray-800 text-sm px-4 py-2 rounded-md">
+              Cancel
+            </button>
+            <button id="confirmDelete" class="bg-red-600 hover:bg-red-700 text-white text-sm px-4 py-2 rounded-md">
+              Yes, Delete
+            </button>
+          </div>
         </div>
       </div>
-    </main>
-  </div>
 
-  <!-- Scripts -->
-  <script>
-    const sidebar = document.getElementById('sidebar');
-    const overlay = document.getElementById('sidebar-overlay');
-    const menuBtn = document.getElementById('menu-btn');
-    const collapseBtn = document.getElementById('collapse-btn');
-    const profileBtn = document.getElementById('profile-btn');
-    const dropdown = document.getElementById('profile-dropdown');
-    const darkToggle = document.getElementById('dark-mode-toggle');
-    const sunIcon = document.getElementById('sun-icon');
-    const moonIcon = document.getElementById('moon-icon');
-    const sidebarLabels = document.querySelectorAll('.sidebar-label');
-    const logoText = document.getElementById('logo-text');
 
-    // Mobile sidebar
-    menuBtn.addEventListener('click', () => {
-      sidebar.classList.toggle('-translate-x-full');
-      overlay.classList.toggle('hidden');
-    });
+    </div>
 
-    overlay.addEventListener('click', () => {
-      sidebar.classList.add('-translate-x-full');
-      overlay.classList.add('hidden');
-    });
+    <!-- Scripts -->
+    <script>
+      const sidebar = document.getElementById('sidebar');
+      const overlay = document.getElementById('sidebar-overlay');
+      const menuBtn = document.getElementById('menu-btn');
+      const collapseBtn = document.getElementById('collapse-btn');
+      const profileBtn = document.getElementById('profile-btn');
+      const dropdown = document.getElementById('profile-dropdown');
+      const darkToggle = document.getElementById('dark-mode-toggle');
+      const sunIcon = document.getElementById('sun-icon');
+      const moonIcon = document.getElementById('moon-icon');
+      const sidebarLabels = document.querySelectorAll('.sidebar-label');
+      const logoText = document.getElementById('logo-text');
 
-    // Profile dropdown
-    profileBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      dropdown.classList.toggle('hidden');
-    });
-
-    document.addEventListener('click', (e) => {
-      if (!profileBtn.contains(e.target) && !dropdown.contains(e.target)) {
-        dropdown.classList.add('hidden');
-      }
-    });
-
-    // Dark mode toggle
-    darkToggle.addEventListener('click', () => {
-      document.documentElement.classList.toggle('dark');
-      sunIcon.classList.toggle('hidden');
-      moonIcon.classList.toggle('hidden');
-    });
-
-    // Collapse sidebar (desktop)
-    let collapsed = false;
-    collapseBtn.addEventListener('click', () => {
-      collapsed = !collapsed;
-      sidebar.style.width = collapsed ? '4rem' : '16rem';
-      sidebarLabels.forEach(el => {
-        el.style.display = collapsed ? 'none' : 'inline';
+      // Mobile sidebar
+      menuBtn.addEventListener('click', () => {
+        sidebar.classList.toggle('-translate-x-full');
+        overlay.classList.toggle('hidden');
       });
-      logoText.style.display = collapsed ? 'none' : 'inline';
+
+      overlay.addEventListener('click', () => {
+        sidebar.classList.add('-translate-x-full');
+        overlay.classList.add('hidden');
+      });
+
+      // Profile dropdown
+      profileBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        dropdown.classList.toggle('hidden');
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!profileBtn.contains(e.target) && !dropdown.contains(e.target)) {
+          dropdown.classList.add('hidden');
+        }
+      });
+
+      // Dark mode toggle
+      darkToggle.addEventListener('click', () => {
+        document.documentElement.classList.toggle('dark');
+        sunIcon.classList.toggle('hidden');
+        moonIcon.classList.toggle('hidden');
+      });
+
+      // Collapse sidebar (desktop)
+      let collapsed = false;
+      collapseBtn.addEventListener('click', () => {
+        collapsed = !collapsed;
+        sidebar.style.width = collapsed ? '4rem' : '16rem';
+        sidebarLabels.forEach(el => {
+          el.style.display = collapsed ? 'none' : 'inline';
+        });
+        logoText.style.display = collapsed ? 'none' : 'inline';
+      });
+    </script>
+
+    <!-- table scripts -->
+
+     <!-- JavaScript -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const selectAll = document.getElementById("selectAll");
+      const bulkDeleteBtn = document.getElementById("bulkDeleteBtn");
+      const confirmModal = document.getElementById("confirmModal");
+      const modalContent = document.getElementById("modalContent");
+      const cancelDelete = document.getElementById("cancelDelete");
+      const confirmDelete = document.getElementById("confirmDelete");
+      const toast = document.getElementById("toast");
+
+      let checkboxes = document.querySelectorAll(".rowCheckbox");
+
+      function toggleDeleteButton() {
+        const anyChecked = document.querySelectorAll(".rowCheckbox:checked").length > 0;
+        bulkDeleteBtn.classList.toggle("hidden", !anyChecked);
+      }
+
+      selectAll.addEventListener("change", () => {
+        checkboxes.forEach(cb => cb.checked = selectAll.checked);
+        toggleDeleteButton();
+      });
+
+      function refreshCheckboxListeners() {
+        checkboxes.forEach(cb => {
+          cb.addEventListener("change", () => {
+            if (!cb.checked) {
+              selectAll.checked = false;
+            } else if (document.querySelectorAll(".rowCheckbox:checked").length === checkboxes.length) {
+              selectAll.checked = true;
+            }
+            toggleDeleteButton();
+          });
+        });
+      }
+      refreshCheckboxListeners();
+
+      // Show modal with animation
+      bulkDeleteBtn.addEventListener("click", () => {
+        confirmModal.classList.remove("hidden");
+        confirmModal.classList.add("flex");
+        setTimeout(() => {
+          modalContent.classList.remove("opacity-0", "scale-95");
+          modalContent.classList.add("opacity-100", "scale-100");
+        }, 10);
+      });
+
+      // Close modal with animation
+      function closeModal() {
+        modalContent.classList.remove("opacity-100", "scale-100");
+        modalContent.classList.add("opacity-0", "scale-95");
+        setTimeout(() => {
+          confirmModal.classList.add("hidden");
+          confirmModal.classList.remove("flex");
+        }, 300);
+      }
+
+      cancelDelete.addEventListener("click", closeModal);
+
+      confirmDelete.addEventListener("click", () => {
+        const selected = document.querySelectorAll(".rowCheckbox:checked");
+        const count = selected.length;
+        selected.forEach(cb => cb.closest("tr").remove());
+        selectAll.checked = false;
+        toggleDeleteButton();
+        closeModal();
+
+        checkboxes = document.querySelectorAll(".rowCheckbox");
+        refreshCheckboxListeners();
+
+        // Show toast notification
+        if (count > 0) {
+          toast.textContent = `${count} user${count > 1 ? 's' : ''} deleted successfully ✅`;
+          toast.classList.remove("opacity-0", "translate-y-4");
+          toast.classList.add("opacity-100", "translate-y-0");
+          setTimeout(() => {
+            toast.classList.remove("opacity-100", "translate-y-0");
+            toast.classList.add("opacity-0", "translate-y-4");
+          }, 3000);
+        }
+      });
+
+      // ESC key closes modal
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && confirmModal.classList.contains("flex")) {
+          closeModal();
+        }
+      });
+
+      // Clicking outside modal closes it
+      confirmModal.addEventListener("click", (e) => {
+        if (e.target === confirmModal) closeModal();
+      });
     });
   </script>
-</body>
+
+  </body>
+
 </html>
