@@ -2,15 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
- .dashboard-card {
-    @apply shadow-sm rounded-md p-4 border border-gray-100 bg-white flex flex-col justify-between;
-  }
+.dashboard-card {
+  @apply p-4 border border-dashed border-gray-300 bg-white flex flex-col justify-between;
+}
 
-  .card-title {
-    @apply text-sm uppercase mb-0;
-  }
+.card-title {
+  @apply text-sm uppercase mb-0;
+}
 
-  .card-value {
-    @apply text-2xl font-bold text-blue-600 uppercase mb-2;
-  }
-  
+.card-value {
+  @apply text-2xl font-bold text-blue-600 uppercase mb-2;
+}
