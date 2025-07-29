@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Professional Dashboard</title>
+  <script src="https://cdn.tailwindcss.com/3.4.0"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class'
+    }
+  </script>
+  <style>
+    .transition-width {
+      transition: width 0.3s ease;
+    }
+  </style>
+</head>
+<body class="h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+  <div class="flex h-screen">
+
+    <!-- Overlay for mobile -->
+    <div id="sidebar-overlay" class="fixed inset-0 bg-black bg-opacity-50 hidden lg:hidden z-20"></div>
+
+    <!-- Sidebar -->
+    <aside id="sidebar"
+      class="fixed lg:static inset-y-0 left-0 w-64 bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out z-30 flex flex-col shadow-lg lg:shadow-none transition-width">
+      
+      <!-- Logo + Collapse Button -->
+      <div class="h-16 flex items-center justify-between px-4 border-b border-gray-200 dark:border-gray-700">
+        <span id="logo-text" class="text-xl font-bold text-indigo-600 transition-opacity">Logo</span>
+        <button id="collapse-btn" class="hidden lg:inline text-gray-500 dark:text-gray-300 hover:text-indigo-600">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Nav Links -->
+      <nav class="flex-1 px-2 py-6 space-y-2 overflow-y-auto">
+        <a href="#" class="flex items-center px-3 py-2 rounded-lg text-indigo-600 bg-indigo-50 dark:bg-indigo-900/40 font-medium hover:bg-indigo-100 dark:hover:bg-indigo-700 transition">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12h18M9 6h6m-6 12h6"/>
+          </svg>
+          <span class="ml-3 sidebar-label">Dashboard</span>
+        </a>
+        <a href="#" class="flex items-center px-3 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a8 8 0 10-16 0v2h5"/>
+          </svg>
+          <span class="ml-3 sidebar-label">Team</span>
+        </a>
+        <a href="#" class="flex items-center px-3 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-6h13M9 12V6H4v12h16v-6"/>
+          </svg>
+          <span class="ml-3 sidebar-label">Projects</span>
+        </a>
+        <a href="#" class="flex items-center px-3 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h8M8 11h8m-8 4h6M5 7h.01M5 11h.01M5 15h.01"/>
+          </svg>
+          <span class="ml-3 sidebar-label">Calendar</span>
+        </a>
+        <a href="#" class="flex items-center px-3 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"/>
+          </svg>
+          <span class="ml-3 sidebar-label">Documents</span>
+        </a>
+        <a href="#" class="flex items-center px-3 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 19V6h9M4 6h3m-3 6h3m-3 6h3"/>
+          </svg>
+          <span class="ml-3 sidebar-label">Reports</span>
+        </a>
+      </nav>
+
+      <!-- Settings -->
+      <div class="p-4 border-t border-gray-200 dark:border-gray-700">
+        <a href="#" class="flex items-center text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+          </svg>
+          <span class="ml-3 sidebar-label">Settings</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <main class="flex-1 flex flex-col">
+      <header class="h-16 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 flex items-center justify-between px-4 lg:px-6 shadow-sm">
+        <!-- Hamburger for mobile -->
+        <button id="menu-btn" class="lg:hidden text-gray-600 dark:text-gray-300 focus:outline-none">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+
+        <!-- Search -->
+        <div class="flex-1 mx-4">
+          <input type="text" placeholder="Search"
+            class="w-full lg:w-64 px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg text-sm bg-gray-50 dark:bg-gray-700 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition">
+        </div>
+
+        <!-- Right -->
+        <div class="flex items-center space-x-4 relative">
+          <!-- Dark mode toggle -->
+          <button id="dark-mode-toggle" class="text-gray-500 dark:text-gray-300 hover:text-indigo-600 transition">
+            <svg id="sun-icon" class="h-6 w-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m8.485-8.485h-1M4.515 12.515h-1m15.556-7.071l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707"/>
+            </svg>
+            <svg id="moon-icon" class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
+            </svg>
+          </button>
+
+          <!-- Notifications -->
+          <button class="text-gray-500 hover:text-indigo-600 transition">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405M19 13v-1a7 7 0 10-14 0v1a7 7 0 0014 0z"/>
+            </svg>
+          </button>
+
+          <!-- Profile Dropdown -->
+          <div class="relative">
+            <button id="profile-btn" class="flex items-center focus:outline-none">
+              <img src="https://i.pravatar.cc/40" alt="User" class="h-8 w-8 rounded-full border border-gray-300 dark:border-gray-600">
+              <span class="ml-2 text-sm font-medium text-gray-700 dark:text-gray-200 hidden sm:inline sidebar-label">Tom Cook</span>
+              <svg class="ml-1 w-4 h-4 text-gray-500 dark:text-gray-400 sidebar-label" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </button>
+            <div id="profile-dropdown"
+              class="hidden absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-md shadow-lg border border-gray-200 dark:border-gray-700 py-1 transition">
+              <a href="#" class="block px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 transition">Profile</a>
+              <a href="#" class="block px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 transition">Settings</a>
+              <a href="#" class="block px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 transition">Logout</a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div class="flex-1 p-6">
+        <div class="w-full h-full border-2 border-dashed border-gray-300 dark:border-gray-700 rounded-lg bg-gray-50 dark:bg-gray-800 flex items-center justify-center text-gray-400 dark:text-gray-500">
+          Main content area
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('sidebar-overlay');
+    const menuBtn = document.getElementById('menu-btn');
+    const collapseBtn = document.getElementById('collapse-btn');
+    const profileBtn = document.getElementById('profile-btn');
+    const dropdown = document.getElementById('profile-dropdown');
+    const darkToggle = document.getElementById('dark-mode-toggle');
+    const sunIcon = document.getElementById('sun-icon');
+    const moonIcon = document.getElementById('moon-icon');
+    const sidebarLabels = document.querySelectorAll('.sidebar-label');
+    const logoText = document.getElementById('logo-text');
+
+    // Mobile sidebar
+    menuBtn.addEventListener('click', () => {
+      sidebar.classList.toggle('-translate-x-full');
+      overlay.classList.toggle('hidden');
+    });
+
+    overlay.addEventListener('click', () => {
+      sidebar.classList.add('-translate-x-full');
+      overlay.classList.add('hidden');
+    });
+
+    // Profile dropdown
+    profileBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      dropdown.classList.toggle('hidden');
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!profileBtn.contains(e.target) && !dropdown.contains(e.target)) {
+        dropdown.classList.add('hidden');
+      }
+    });
+
+    // Dark mode toggle
+    darkToggle.addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark');
+      sunIcon.classList.toggle('hidden');
+      moonIcon.classList.toggle('hidden');
+    });
+
+    // Collapse sidebar (desktop)
+    let collapsed = false;
+    collapseBtn.addEventListener('click', () => {
+      collapsed = !collapsed;
+      sidebar.style.width = collapsed ? '4rem' : '16rem';
+      sidebarLabels.forEach(el => {
+        el.style.display = collapsed ? 'none' : 'inline';
+      });
+      logoText.style.display = collapsed ? 'none' : 'inline';
+    });
+  </script>
+</body>
+</html>
